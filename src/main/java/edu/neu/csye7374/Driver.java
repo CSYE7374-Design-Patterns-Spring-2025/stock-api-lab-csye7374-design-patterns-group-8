@@ -17,6 +17,9 @@ public class Driver {
         Stock googleStock = new GoogleStock("GOOGL", 2800.0, "Alphabet Inc. Class A Common Stock");
         market.addStock(googleStock);
         
+        Stock teslaStock = new TeslaStock("TSLA", 750.0, "Tesla Inc. Common Stock");
+        market.addStock(teslaStock);
+
         // Show initial state
         System.out.println("Initial Stock State:");
         market.showAllStocks();
@@ -28,6 +31,14 @@ public class Driver {
         for (int i = 0; i < googleBids.length; i++) {
             System.out.println("\nTrade #" + (i + 1) + ":");
             market.tradeStock(googleStock, googleBids[i]);
+            market.showAllStocks();
+        }
+
+        System.out.println("\nTrading Tesla Stock:");
+        String[] teslaBids = {"770.0", "780.0", "760.0", "785.0", "800.0", "810.0"};
+        for (int i = 0; i < teslaBids.length; i++) {
+            System.out.println("\nTrade #" + (i + 1) + ":");
+            market.tradeStock(teslaStock, teslaBids[i]);
             market.showAllStocks();
         }
 
